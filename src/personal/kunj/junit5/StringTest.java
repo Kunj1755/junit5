@@ -5,9 +5,26 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 class StringTest {
+
+	// @Before --> In JUnit 4
+	@BeforeEach
+	void beforeEach(TestInfo info) {
+		// TestInfo is not present in JUnit 4
+		System.out.println("initializing data for each test" + info.getDisplayName());
+	}
+
+	// @After --> In JUnit 4
+	@AfterEach
+	void afterEach(TestInfo info) {
+		// info.getDisplayName() will display the method name for all the tests
+		System.out.println("clean up" + info.getDisplayName());
+	}
 
 	@Test
 	void length_basic() {
