@@ -1,5 +1,7 @@
 package personal.kunj.junit5;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,4 +33,17 @@ class StringTest {
 		// assertTrue
 	}
 
+	// inline version of the prev test
+	@Test
+	void contains_basic_innline() {
+		assertFalse("abcdef".contains("try"));
+	}
+
+	@Test
+	void array_split() {
+		String str = "abc def ghi";
+		String actualResult[] = str.split(" ");
+		String expectedResult[] = new String[] { "abc", "def", "ghi" };
+		assertArrayEquals(expectedResult, actualResult);
+	}
 }
