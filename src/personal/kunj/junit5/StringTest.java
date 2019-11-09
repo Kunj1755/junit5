@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.Duration;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -117,5 +119,17 @@ class StringTest {
 		String actualResult[] = str.split(" ");
 		String expectedResult[] = new String[] { "abc", "def", "ghi" };
 		assertArrayEquals(expectedResult, actualResult);
+	}
+
+	@Test
+	void performanceTest() {
+		Assertions.assertTimeout(Duration.ofSeconds(5), () -> {
+			for (int i = 0; i <= 1000000; i++) {
+				int j = i;
+				System.out.println(j);
+			}
+		}
+
+		);
 	}
 }
