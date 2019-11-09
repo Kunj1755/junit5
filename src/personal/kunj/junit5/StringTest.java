@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -122,6 +123,7 @@ class StringTest {
 	}
 
 	@Test
+	@Disabled // @Ignored in Junit4
 	void performanceTest() {
 		Assertions.assertTimeout(Duration.ofSeconds(5), () -> {
 			for (int i = 0; i <= 1000000; i++) {
