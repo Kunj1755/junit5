@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -105,6 +106,7 @@ class StringTest {
 
 	// inline version of the prev test
 	@Test
+	@RepeatedTest(10) // In JUnit 5
 	void contains_basic_innline() {
 		assertFalse("abcdef".contains("try"));
 	}
