@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -23,6 +24,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StringTest {
+
+	private String str;
 
 	@BeforeAll
 	static void beforeAll() {
@@ -134,4 +137,44 @@ class StringTest {
 
 		);
 	}
+
+	@Nested
+	@DisplayName("For an empty String")
+	class EmptyStringTests {
+
+		@BeforeEach
+		void setToEmpty() {
+			str = "";
+		}
+
+		@Test
+		@DisplayName("length should be zero")
+		void lengthIsZero() {
+			assertEquals(0, str.length());
+		}
+
+		@Test
+		@DisplayName("upper case is empty")
+		void uppercaseIsEmpty() {
+			assertEquals("", str.toUpperCase());
+		}
+
+	}
+
+	@Nested
+	@DisplayName("For large strings")
+	class LargeStringTests {
+
+		@BeforeEach
+		void setToALargeString() {
+			str = "dlkfjlajbvjcxzbnhrewu";
+		}
+
+		@Test
+		void lengthIsGreaterThanZero() {
+			assertEquals(21, str.length());
+		}
+
+	}
+
 }
